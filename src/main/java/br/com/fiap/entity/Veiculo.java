@@ -2,6 +2,7 @@ package br.com.fiap.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Calendar;
 
 @Entity
@@ -23,8 +24,8 @@ public class Veiculo {
     private Integer ano;
 
     @Column(name = "dt_revisao")
-    @Temporal(TemporalType.DATE)
-    private Calendar dataRevisao;
+    @Temporal(TemporalType.TIME)
+    private LocalDate dataRevisao;
 
     @Column(name = "ds_tipo", length = 30)
     @Enumerated(EnumType.STRING)
@@ -36,7 +37,7 @@ public class Veiculo {
     public Veiculo() {
     }
 
-    public Veiculo(Long codigo, String modelo, BigDecimal valor, Integer ano, Calendar dataRevisao, Tipo tipo, String placa) {
+    public Veiculo(Long codigo, String modelo, BigDecimal valor, Integer ano, LocalDate dataRevisao, Tipo tipo, String placa) {
         this.codigo = codigo;
         this.modelo = modelo;
         this.valor = valor;
@@ -78,11 +79,11 @@ public class Veiculo {
         this.ano = ano;
     }
 
-    public Calendar getDataRevisao() {
+    public LocalDate getDataRevisao() {
         return dataRevisao;
     }
 
-    public void setDataRevisao(Calendar dataRevisao) {
+    public void setDataRevisao(LocalDate dataRevisao) {
         this.dataRevisao = dataRevisao;
     }
 
